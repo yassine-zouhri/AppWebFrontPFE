@@ -1,0 +1,41 @@
+<nb-card>
+    <nb-card-body>
+        <div class="container" style="height: 565px;">
+            <div class="row" style="height:565px;">
+              <div class="col-8" style="height: 100%;">
+                <div id="map1" style="height: 100%;width: 100%;border: rgb(160, 152, 152) solid 5px;border-radius: 5px;" [nbSpinner]="loading" nbSpinnerStatus="success" nbSpinnerSize="giant"></div>
+              </div>
+              <div class="col-4" style="height: 100% ;">
+                <nb-card style="height: 100%;border: rgb(160, 152, 152) solid 5px;border-radius: 5px;width: 100%;">
+                  <nb-card-body>
+                    <mat-card *ngIf="MySelectedMarkerData!=null" style="margin: -24px;" >
+                      <mat-card-header *ngIf="MySelectedMarkerData.statut==true">
+                        <div mat-card-avatar  [ngStyle]="{'background-image': 'url(' + MySelectedMarkerData.userImage + ')', 'background-size': 'cover','height':'50px','width':'50px'  }"></div>
+                        <mat-card-title style="margin-top: 5px;">{{MySelectedMarkerData.userFullName}}</mat-card-title>
+                        <mat-card-subtitle>{{MySelectedMarkerData.userEmail}}</mat-card-subtitle>
+                      </mat-card-header>
+                      <img mat-card-image [src]="MySelectedMarkerData.imageURL" alt="Photo of a Shiba Inu">
+                      <mat-card-content >
+                        <div class="card-body">
+                          <h5 class="card-title">{{MySelectedMarkerData.titre}}</h5>
+                          <p class="card-text">{{MySelectedMarkerData.description}}.</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item">Categotie : {{MySelectedMarkerData.categorie}}</li>
+                          <li class="list-group-item">Zone : {{MySelectedMarkerData.zone}}</li>
+                          <li class="list-group-item">Date : {{MySelectedMarkerData.date}}</li>
+                          <li class="list-group-item">Priorité : {{MySelectedMarkerData.degre_danger}}/10</li>
+                        </ul>
+                      </mat-card-content>
+                    </mat-card>
+                    <p *ngIf="MySelectedMarkerData==null" style="margin-top: 200px;">
+                      Veuillez choisir un événement sur la map ( cliquez au-dessus)
+                    </p>
+                  </nb-card-body>
+                  
+                </nb-card>
+              </div>
+            </div>
+          </div>
+    </nb-card-body>
+</nb-card>

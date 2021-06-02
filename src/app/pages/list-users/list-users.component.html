@@ -1,0 +1,22 @@
+<nb-card>
+    <nb-card-header>
+      Table des utitisateurs
+    </nb-card-header>
+  
+    <nb-card-body>
+      <button  style="margin-bottom: 10px;" nbButton outline status="info" (click)="AddUser()">
+        <nb-icon icon="plus-circle-outline">
+        </nb-icon>Ajouter un user
+      </button>
+
+      <button  style="margin-bottom: 10px; margin-left: 10px;" nbButton outline status="info" (click)="onBtExport()">
+        <nb-icon icon="cloud-download-outline">
+        </nb-icon>Exporter en excel
+      </button>
+
+      <ng2-smart-table  [settings]="settings"  (custom)="onCustomAction($event)" [source]="data" (rowSelect)="getSelectedRows($event)"  (editConfirm)="onEditConfirm($event)" (deleteConfirm)="onDeleteConfirm($event)" >
+      </ng2-smart-table>
+    </nb-card-body>
+  </nb-card>
+
+  

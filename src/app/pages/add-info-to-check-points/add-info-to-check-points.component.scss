@@ -1,0 +1,36 @@
+@import '../../@theme/styles/themes';
+:host ::ng-deep nb-stepper .step-content {
+    text-align: center;
+  
+    button {
+      cursor: pointer;
+      margin: 0.5rem;
+    }
+}
+
+nb-card {
+    /**
+     * This is the max-width value of the Bootstrap giant modal
+     * Using it here ensures the modal will properly adjust it's width to the content
+     */
+    max-width: 800px;
+    width : 800px;
+    height: 500px;
+    /**
+     * This is the height value of NbComponentSize 'giant'
+     * By setting max-height of the modal card to this value, we ensure the modal will properly adjust it's height
+     * to the content
+     */
+    max-height: 44.25rem;
+  }
+
+  @include nb-install-component() {
+    nb-card {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  .example-full-width {
+    width: 100%;
+  }
+
+  

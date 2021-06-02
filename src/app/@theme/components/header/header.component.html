@@ -1,0 +1,104 @@
+<div class="header-container">
+  <div class="logo-container">
+    <img src="../../../../assets/images/cires.jpg" style="width: 300px;height: 75px;margin-left: -20px;"/>
+    <a (click)="toggleSidebar()" href="#" class="sidebar-toggle" style="margin-left: 10px;">
+      <div style="border: rgb(224, 139, 41) 2px solid ;border-radius: 50%;padding: 10px;">
+        <nb-icon icon="menu-2-outline"></nb-icon>
+      </div>
+      
+    </a>
+  </div>
+</div>
+
+  
+
+<div class="header-container">
+
+  <div class="wrapper" style="margin-right: 40px;">
+    <div class="navbar">
+      <div class="navbar_right">
+        <div class="notifications" style="margin-top: 15px;">
+          <div class="icon_wrap" ><button nbButton ghost ><span *ngIf=" NumOfNoAssignedEvent > 0 " class="badge ">{{NumOfNoAssignedEvent}}</span><nb-icon icon="bell-outline" ></nb-icon></button></div>
+          <div class="notification_dd" >
+              <ul class="notification_ul" style="height: 100%;list-style-type: disc;"> 
+
+                <li *ngFor="let item of listNotification; index as i;" [ngClass]="item.assigned == false ? 'item baskin_robbins success' : 'baskin_robbins success'" (click) = "onClickEvent(item)">
+                  <div class="notify_icon">
+                    <nb-user size="large" style="margin-left: -5px;margin-right: -15px;"
+                    name=""
+                    title=""
+                    [picture]="item.imageURL">
+                  </nb-user>
+                  </div>
+                  <div class="notify_data">
+                      <div class="title">
+                          {{item.titre}}  
+                      </div>
+                      <div class="sub_title">
+                        {{item.description}}
+                    </div>
+                  </div>
+                  <div class="notify_status" >
+                      <p style="clear: both;
+                      display: inline-block;
+                      overflow: hidden;
+                      white-space: nowrap">{{item.date}}</p>  
+                  </div>
+              </li>
+              </ul>
+          </div>
+          
+        </div>
+      </div>
+    </div>
+    
+  </div>
+
+
+  <nb-actions size="small">
+    <nb-action class="user-action" *nbIsGranted="['view', 'user']" >
+      <nb-user [nbContextMenu]="userMenu"
+               [nbContextMenuTag]="onMenuItemClick"
+               [onlyPicture]="userPictureOnly"
+               [name]="username"
+               [picture]="retrievedImage">
+      </nb-user>
+    </nb-action>
+  </nb-actions>
+
+
+</div>
+
+<!--
+
+<div class="header-container">
+  <div class="logo-container">
+    <a (click)="toggleSidebar()" href="#" class="sidebar-toggle">
+      <nb-icon icon="menu-2-outline"></nb-icon>
+    </a>
+    <a class="logo" href="#" (click)="navigateHome()">ngx-<span>admin</span></a>
+  </div>
+  <nb-select [selected]="currentTheme" (selectedChange)="changeTheme($event)" status="primary">
+    <nb-option *ngFor="let theme of themes" [value]="theme.value"> {{ theme.name }}</nb-option>
+  </nb-select>
+</div>
+
+<div class="header-container">
+  <nb-actions size="small">
+
+    <nb-action class="control-item">
+      <nb-search type="rotate-layout"></nb-search>
+    </nb-action>
+    <nb-action class="control-item" icon="email-outline"></nb-action>
+    <nb-action class="control-item" icon="bell-outline"></nb-action>
+    <nb-action class="user-action" *nbIsGranted="['view', 'user']" >
+      <nb-user [nbContextMenu]="userMenu"
+               [onlyPicture]="userPictureOnly"
+               [name]="user?.name"
+               [picture]="user?.picture">
+      </nb-user>
+    </nb-action>
+  </nb-actions>
+</div>
+
+-->

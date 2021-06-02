@@ -1,0 +1,49 @@
+@import '../../@theme/styles/themes';
+@import 'ag-grid-community/dist/styles/ag-grid.css';
+@import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
+
+:host ::ng-deep nb-stepper .step-content {
+    text-align: center;
+  
+    button {
+      cursor: pointer;
+      margin: 0.5rem;
+    }
+}
+
+nb-card {
+  /**
+   * This is the max-width value of the Bootstrap giant modal
+   * Using it here ensures the modal will properly adjust it's width to the content
+   */
+  width: 1200px;
+  /**
+   * This is the height value of NbComponentSize 'giant'
+   * By setting max-height of the modal card to this value, we ensure the modal will properly adjust it's height
+   * to the content
+   */
+  height: 600px;
+}
+
+#map {
+  height: 100%;
+  width: 100%;
+}
+
+.example-card {
+  max-width: 400px;
+  //overflow-y:auto
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+
+  > .mat-card-title-group {
+    display: block;
+  }
+
+  > .mat-card-content {
+    overflow-y: auto;
+  }
+}
+
+

@@ -1,0 +1,37 @@
+<nb-card>
+    <nb-card-body style="margin: 0;padding: 0;">
+        <div class="container-fluid" >
+            <div class="row" style="margin-top: 35px;" >
+                <div class="col-8">  
+                    <div id="map" style="height: 650px;" [nbSpinner]="loading" nbSpinnerStatus="success" nbSpinnerSize="giant"></div>
+                </div>
+                <div class="col-4"  style="height: 650px;">
+                     
+                    <nb-card style="height: 100%;">   
+                        <nb-card-header>Liste des agents disponibles</nb-card-header>              
+                        <nb-card-body >
+                            <ag-grid-angular id="myGrid" class="ag-theme-balham" style="height: 100%;margin-top: 10px;"
+                                            [rowDragManaged]="true"
+                                            [animateRows]="true" 
+                                            [columnDefs]="leftColumns"
+                                            [gridOptions]="gridOptions"
+                                            [frameworkComponents]="frameworkComponents"
+                                            rowSelection="single"
+                                            [enableMultiRowDragging]="true"
+                                            [suppressRowClickSelection]="true"
+                                            [getRowNodeId]="getRowNodeId"
+                                            [rowDragManaged]="true"
+                                            [suppressMoveWhenRowDragging]="true"
+                                            [rowData]="ListOnlineAgentsWithLoc"
+                                            (selectionChanged)="onSelectionChanged($event)"
+                                            (gridReady)="onGridReady($event)"
+                                        >
+                            </ag-grid-angular>
+                        </nb-card-body>
+                      </nb-card>
+                 
+                </div>
+            </div> 
+        </div>
+    </nb-card-body>
+  </nb-card>

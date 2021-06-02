@@ -1,0 +1,159 @@
+
+<div class="body" style="background-image: url('https://lemarocquejadore.com/wp-content/uploads/2020/09/TANGER-MED-2019.png');background-repeat: no-repeat;background-position: center;background-size: cover;height: 100%; ">
+  <section class="ftco-section">
+		<div class="container">
+		
+			<div class="row justify-content-center">
+				<div class="col-md-12 col-lg-10">
+					<div class="wrap d-md-flex">
+						<div class="img" style="background-image: url('https://media-exp1.licdn.com/dms/image/C4D0BAQHw9HCIt080AQ/company-logo_200_200/0/1617722302730?e=2159024400&v=beta&t=R3J_K7OhCOk2sq2Mh8kyDYGUtkWWsWNZFhkVymENlIQ');">
+			      </div>
+						<div class="login-wrap p-4 p-md-5">
+			      	<div class="d-flex">
+			      		<div class="w-100">
+			      			<h3 class="mb-4" style="color: black;font-size: 30px;">Authentification</h3>
+			      		</div>
+								
+			      	</div>
+							<form *ngIf="!isLoggedIn"
+              name="form"
+              (ngSubmit)="f.form.valid && onSubmit()"
+              #f="ngForm"
+              novalidate class="signin-form">
+			      		<div class="form-group mb-3">
+			      			<label class="label" for="name">Email</label>
+			      			<input type="text" class="form-control" placeholder="Saisir votre email" name="username"
+                  [(ngModel)]="form.username" #username="ngModel" required>
+			      		</div>
+                <div
+                  class="alert alert-danger"
+                  role="alert"
+                  *ngIf="f.submitted && username.invalid"
+                >
+                  Username is required!
+                </div>
+		            <div class="form-group mb-3">
+		            	<label class="label" for="password">Mot de passe</label>
+		              <input type="password" class="form-control" placeholder="Saisir votre mot de passe" name="password"
+                  [(ngModel)]="form.password"
+                  minlength="6"
+                  #password="ngModel" required>
+		            </div>
+                <div
+                  class="alert alert-danger"
+                  role="alert"
+                  *ngIf="f.submitted && password.invalid"
+                >
+                  <div *ngIf="password.errors.required">Password is required</div>
+                  <div *ngIf="password.errors.minlength">
+                    Password must be at least 6 characters
+                  </div>
+                </div>
+              
+		            <div class="form-group" style="margin-top: 40px;">
+		            	<button type="submit" class="form-control btn btn-primary rounded submit px-3">Login</button>
+		            </div>
+                <div class="form-group">
+                  <div
+                    class="alert alert-danger"
+                    role="alert"
+                    *ngIf="f.submitted && isLoginFailed"
+                  >
+                    Login failed: {{ errorMessage }}
+                  </div>
+                </div>
+		            <!--<div class="form-group d-md-flex">
+		            	<div class="w-50 text-left">
+			            	<label class="checkbox-wrap checkbox-primary mb-0">Remember Me
+									  <input type="checkbox" checked/>
+									  <span class="checkmark"></span>
+										</label>
+									</div>
+									
+		            </div>-->
+		          </form>
+	
+		        </div>
+		      </div>
+				</div>
+			</div>
+		</div>
+	</section>
+</div>
+
+<!--<div class="col-md-12">
+  <div class="card card-container">
+    <img
+      id="profile-img"
+      src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+      class="profile-img-card"
+    />
+    <form
+      *ngIf="!isLoggedIn"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          name="username"
+          [(ngModel)]="form.username"
+          required
+          #username="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="f.submitted && username.invalid"
+        >
+          Username is required!
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+          #password="ngModel"
+        />
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="f.submitted && password.invalid"
+        >
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">
+            Password must be at least 6 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block">
+          Login
+        </button>
+      </div>
+      <div class="form-group">
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="f.submitted && isLoginFailed"
+        >
+          Login failed: {{ errorMessage }}
+        </div>
+      </div>
+    </form>
+
+    <div class="alert alert-success" *ngIf="isLoggedIn">
+      Logged in as {{ roles }}.
+    </div>
+ 
+  </div>
+</div>-->

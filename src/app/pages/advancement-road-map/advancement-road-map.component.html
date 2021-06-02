@@ -1,0 +1,43 @@
+<nb-card>
+    <nb-card-body style="height: 565px;">
+      <div class="container" style="height: 565px;">
+        <div class="row" style="height:565px;">
+          <div class="col-7" style="height: 100%;">
+            <div id="map" style="height: 100%;width: 100%;border: rgb(160, 152, 152) solid 5px;border-radius: 5px;" [nbSpinner]="loading" nbSpinnerStatus="success" nbSpinnerSize="giant"></div>
+          </div>
+          <div class="col-5" style="height: 100% ;">
+            <nb-card style="height: 150px;border: rgb(160, 152, 152) solid 5px;border-radius: 5px;width: 100%;">
+              <nb-card-body>
+                <div class="row">
+                  <div class="col-sm-6 col-md-4">
+                      <img [src]="imageData" alt="" class=" image-avatar" />
+                  </div>
+                  <div class="col-sm-6 col-md-8">
+                      <h6 style="margin-right: 10px;"> {{userfullName}} </h6>
+                      <p>
+                          <i class="glyphicon glyphicon-envelope"></i>{{userEmail}}
+                          <br />
+                          <i class="glyphicon glyphicon-envelope"></i>Mobile : {{userMobile}}
+                          <br />
+                          <i class="glyphicon glyphicon-gift"></i>N° de Matricule : {{userMatricule}}</p>
+                  </div>
+              </div>
+              </nb-card-body>
+            </nb-card>
+            <nb-card style="height: 400px;border: rgb(160, 152, 152) solid 5px;border-radius: 5px;width: 100%;margin-top: -19px;">
+              <nb-card-body>
+                <ag-grid-angular id="myGrid" class="ag-theme-balham" style="height: 400px;margin-top: -18px;margin-left: -25px;margin-right: -25px;"
+                [rowDragManaged]="true"
+                [animateRows]="true" 
+                [rowData]="listCheckPoint"
+                [columnDefs]="columnDefs"
+                [gridOptions]="gridOptions"
+                >
+            </ag-grid-angular>
+              </nb-card-body>
+            </nb-card>
+          </div>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>

@@ -1,0 +1,111 @@
+
+<nb-card>
+    <nb-card-body style="margin: 0;padding: 0;">
+        <div class="container-fluid" >
+            <div class="row" style="margin-top: 35px;" >
+                <div class="col-8"> 
+                    <div id="map" style="height: 650px;" [nbSpinner]="loading" nbSpinnerStatus="success" nbSpinnerSize="giant"></div>
+                </div>
+                <div class="col-4">
+                    <nb-accordion style="height: 650px;">
+                        <nb-accordion-item [expanded]="true">
+                         <nb-accordion-item-header>Créer une ronde</nb-accordion-item-header>
+                         <nb-accordion-item-body>
+                            <div class="btn-group special" role="group" aria-label="...">
+                                <button  (click)="EnableAddingMArkers()" size="small" class="btn btn-default"  nbButton outline status="info" ><nb-icon icon="plus-circle-outline"></nb-icon>Ajouter</button>
+                                <button (click)="AddRoadMap()" size="small" class="btn btn-default"  nbButton outline status="success" [disabled]="TerminerRonde"  ><nb-icon icon="checkmark-circle-outline"></nb-icon>Terminer</button> 
+                            </div>
+            
+                            <ag-grid-angular id="myGrid" class="ag-theme-balham" style="height: 400px;margin-top: 10px;"
+                                [rowDragManaged]="true"
+                                [animateRows]="true" 
+                                [rowData]="listMarkers"
+                                [columnDefs]="columnDefs"
+                                [gridOptions]="gridOptions"
+                                (rowDragMove)="onRowDragMove($event)"
+                                (rowDragEnd)="onRowDragEnd($event)"
+                                [frameworkComponents]="frameworkComponents">
+                            </ag-grid-angular>
+            
+                         </nb-accordion-item-body>
+                        </nb-accordion-item>
+                        <nb-accordion-item>
+                            <nb-accordion-item-header>Visualiser une ronde sur la map</nb-accordion-item-header>
+                            <nb-accordion-item-body>
+                                    <ag-grid-angular id="myGrid2" class="ag-theme-balham" style="height: 400px;margin-top: 10px;; box-sizing: border-box;"
+                                        [rowDragManaged]="true"
+                                        [animateRows]="true" 
+                                        [rowData]="listRoadMap"
+                                        [columnDefs]="columnDefs2"
+                                        [gridOptions]="gridOptions2"
+                                        [frameworkComponents]="frameworkComponents2"
+                                    >
+                                    </ag-grid-angular>
+                            </nb-accordion-item-body>
+                        </nb-accordion-item>
+                    </nb-accordion>
+                </div>
+            </div> 
+        </div>
+    </nb-card-body>
+  </nb-card>
+
+<!--<div class="container">
+    <div class="row" style="margin-top: 50px;float: right;" >
+        <div class="col-8">
+            <div id="map"></div>
+        </div>
+        <div class="col-4">
+            <nb-accordion >
+                <nb-accordion-item [expanded]="true">
+                 <nb-accordion-item-header>Créer une ronde</nb-accordion-item-header>
+                 <nb-accordion-item-body>
+                     <div class="btn-group special" role="group" aria-label="...">
+                        <button (click)="EnableAddingMArkers()" size="small" class="btn btn-default"  nbButton outline status="info" ><nb-icon icon="plus-circle-outline"></nb-icon>Ajouter</button>
+                        <button (click)="AddRoadMap()" size="small" class="btn btn-default"  nbButton outline status="success" [disabled]="TerminerRonde"  ><nb-icon icon="checkmark-circle-outline"></nb-icon>Terminer</button> 
+                      </div>
+    
+    
+                      <ag-grid-angular id="myGrid" class="ag-theme-balham" style="height: 400px;margin-top: 10px;"
+                            [rowDragManaged]="true"
+                            [animateRows]="true" 
+                            [rowData]="listMarkers"
+                            [columnDefs]="columnDefs"
+                            [gridOptions]="gridOptions"
+                            (rowDragMove)="onRowDragMove($event)"
+                            (rowDragEnd)="onRowDragEnd($event)"
+                            [frameworkComponents]="frameworkComponents"
+                        >
+                        </ag-grid-angular>
+    
+                 </nb-accordion-item-body>
+                </nb-accordion-item>
+                <nb-accordion-item>
+                    <nb-accordion-item-header>Visualiser une ronde sur la map</nb-accordion-item-header>
+                    <nb-accordion-item-body>
+                        <ag-grid-angular id="myGrid2" class="ag-theme-balham" style="height: 400px;margin-top: 10px;; box-sizing: border-box;"
+                        [rowDragManaged]="true"
+                        [animateRows]="true" 
+                        [rowData]="listRoadMap"
+                        [columnDefs]="columnDefs2"
+                        [gridOptions]="gridOptions2"
+                        [frameworkComponents]="frameworkComponents2"
+                    >
+                    </ag-grid-angular>
+                    </nb-accordion-item-body>
+                </nb-accordion-item>
+                <nb-accordion-item>
+                    <nb-accordion-item-header>Re-parametrer une ronde</nb-accordion-item-header>
+                    <nb-accordion-item-body>
+                      Item Content  Item Content Item Content Item Content Item Content Item Content Item Content Item Content Item Content Item Content Item Content Item Content Item Content 
+                    </nb-accordion-item-body>
+                </nb-accordion-item>
+            </nb-accordion>
+        </div>
+    </div> 
+</div>-->
+
+
+
+
+    

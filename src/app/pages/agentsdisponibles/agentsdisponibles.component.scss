@@ -1,0 +1,83 @@
+@import '../../@theme/styles/themes';
+
+/*@include nb-install-component() {
+  nb-card {
+    transform: translate3d(0, 0, 0);
+  }
+}*/
+
+nb-card {
+    /**
+     * This is the max-width value of the Bootstrap giant modal
+     * Using it here ensures the modal will properly adjust it's width to the content
+     */
+    width: 100%;
+    /**
+     * This is the height value of NbComponentSize 'giant'
+     * By setting max-height of the modal card to this value, we ensure the modal will properly adjust it's height
+     * to the content
+     */
+    height: 44.25rem;
+  }
+
+  :host {
+      margin: -40px;
+      margin-top: -60px;
+    @include nb-ltr() {
+      padding-left: 0em;
+    };
+    @include nb-rtl() {
+      padding-right: 0em;
+    };
+  }
+
+.btn-group.special {
+    display: flex;
+  }
+  
+.special .btn {
+    flex: 1
+  }
+
+
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+.mainTopBar
+{
+margin-left:0px !important;
+}
+
+#parent{
+    border:1px solid red; 
+    width:100%; 
+    
+  }
+  
+  #rightchild{
+    top: 0;
+    width:100px; 
+    right:0; 
+    bottom: 0;
+    background:rgb(30, 255, 0); 
+    
+    left: 0px;
+  }
+
+  #legend {
+    font-family: Arial, sans-serif;
+    background: #fff;
+    padding: 10px;
+    margin: 10px;
+    border: 3px solid #000;
+  }
+
+  #legend h3 {
+    margin-top: 0;
+  }
+
+  #legend img {
+    vertical-align: middle;
+  }

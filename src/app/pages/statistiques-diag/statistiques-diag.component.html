@@ -1,0 +1,72 @@
+<div class="row">
+  <div class="col-6">
+    <nb-card>
+      <nb-card-body>
+        <div >
+          <highcharts-chart
+            [Highcharts]="highcharts"
+            [constructorType]="chartConstructorCategorie"
+            [options]="chartOptionsCategorie"
+            [callbackFunction]="chartCallbackCategorie"
+            [(update)]="updateFromInputCategorie"
+            [oneToOne]="true"
+            style="width: 100%; height: 400px; display: block"
+          >
+          </highcharts-chart>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-6">
+    <nb-card>
+      <nb-card-body>
+        <div >
+          <highcharts-chart
+            [Highcharts]="highcharts"
+            [constructorType]="chartConstructorZone"
+            [options]="chartOptionsZone"
+            [callbackFunction]="chartCallbackZone"
+            [(update)]="updateFromInputZone"
+            [oneToOne]="true"
+            style="width: 100%; height: 400px; display: block"
+          >
+          </highcharts-chart>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-6">
+    <nb-card>
+      <nb-card-body>
+        <div >
+          <highcharts-chart
+            [Highcharts]="highcharts"
+            [constructorType]="chartConstructorStatut"
+            [options]="chartOptionsStatut"
+            [callbackFunction]="chartCallbackStatut"
+            [(update)]="updateFromInputStatut"
+            [oneToOne]="true"
+            style="width: 100%; height: 400px; display: block"
+          >
+          </highcharts-chart>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+  <div class="col-6">
+    <nb-card>
+      <nb-card-body>
+        <div >
+          <highcharts-chart
+            [Highcharts] = "highcharts" 
+            [options] = "chartOptionsDate" 
+            [callbackFunction]="chartCallbackDate"
+            [(update)]="updateFromInputDate"
+            [oneToOne]="true"
+            style = "width: 100%; height: 400px; display: block;">
+          </highcharts-chart>
+        </div>
+      </nb-card-body>
+    </nb-card>
+  </div>
+</div>

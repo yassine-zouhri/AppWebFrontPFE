@@ -1,0 +1,109 @@
+<nb-card [nbSpinner]="loading" nbSpinnerSize="giant" nbSpinnerStatus="primary">
+  <nb-card-header
+    >Ajouter des commentaires, des photos sur les points de ronde :
+  </nb-card-header>
+  <nb-card-body class="example-items-col">
+    <nb-accordion>
+                <nb-accordion-item *ngFor="let pointC of ListPointControle; index as i" [expanded]="i == 0 ? true : false">
+                        <nb-accordion-item-header>
+                            Point de Controle N° {{ pointC.ordre }}
+                        </nb-accordion-item-header>
+                        <nb-accordion-item-body>
+                                <ngx-dropzone multiple="false" accept="image/*"  style="width: 100%;" (change)="onSelect($event,i)">
+                                    <ngx-dropzone-label><div class="content">
+                                            <div class="icon">
+                                                <i class="fas fa-cloud-upload-alt"></i>
+                                            </div>
+                                            <div class="text"> veuillez selectionner une image .</div>
+                                            </div></ngx-dropzone-label>
+                                <ngx-dropzone-preview *ngFor="let f of arrayImages[i]" [removable]="true" (removed)="onRemove(f,i)">
+                                    <ngx-dropzone-label>{{ f[0].name }} ({{ f[0].type }})</ngx-dropzone-label>
+                                </ngx-dropzone-preview>
+                                </ngx-dropzone>
+                                <textarea [class]="'descriptionCP'+i" nbInput fullWidth placeholder="Ecrire une description" style="margin-top: 10px;"></textarea>
+                                <!--<ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f">
+                                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                </ngx-dropzone-image-preview>-->
+
+                            
+                        </nb-accordion-item-body>
+ 
+              </nb-accordion-item>
+              <nb-accordion-item >
+                <nb-accordion-item-header>
+                    Paramétrage de la ronde
+                </nb-accordion-item-header>
+                <nb-accordion-item-body style="height: 100%;">
+                    <div class="container" style="width: 100%;">
+                        <div class="row">
+                            <div class="col-6" >
+                                <mat-form-field class="example-full-width">
+                                    <input matInput required class="DateDebut" type="datetime-local" placeholder="Date de debut de la ronde">
+                                  </mat-form-field>
+                            </div>
+                            <div class="col-6">
+                                <mat-form-field class="example-full-width">
+                                    <input matInput required  class="Datefin" type="datetime-local" placeholder="Date de fin de la ronde">
+                                  </mat-form-field>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Rayon du géorepérage</mat-label>
+                                    <input matInput required class="geofenceredius form-control" placeholder="Ex. 15 m"  >
+                                </mat-form-field>
+                            </div>
+                        </div>
+                    </div>
+                </nb-accordion-item-body>
+              </nb-accordion-item>
+      
+    </nb-accordion>
+    </nb-card-body>
+        <nb-card-footer>
+            <button nbButton hero status="success" style="position: relative;float: right;" (click)="OnUploadImage()">Valider</button>
+            <button nbButton hero status="success" style="position: relative;float: right;margin-right: 10px;" (click)="ValidateAndAssign()" >Valider et affecter</button>
+        </nb-card-footer>
+    </nb-card>
+
+
+<!--
+
+<nb-accordion multi>
+        <form  id="myForm" [formGroup]="thisIsMyForm" (ngSubmit)="submit1()">
+            <div [formArrayName]="'formArrayName'">
+                <nb-accordion-item *ngFor="let pointC of ListPointControle; index as i" [expanded]="i == 0 ? true : false">
+                    <div [formGroupName]="i">
+                        <nb-accordion-item-header>
+                            Point de Controle N° {{ pointC.ordre }}
+                        </nb-accordion-item-header>
+                        <nb-accordion-item-body>
+                                <ngx-dropzone  style="width: 100%;" (change)="onSelect($event)">
+                                    <ngx-dropzone-label><div class="content">
+                                            <div class="icon">
+                                                <i class="fas fa-cloud-upload-alt"></i>
+                                            </div>
+                                            <div class="text">No file chosen, yet!</div>
+                                            </div></ngx-dropzone-label>
+                                <ngx-dropzone-preview *ngFor="let f of files" [removable]="true" (removed)="onRemove(f)">
+                                    <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                </ngx-dropzone-preview>
+                                </ngx-dropzone>
+                                <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f">
+                                <ngx-dropzone-label>{{ f.name }} ({{ f.type }})</ngx-dropzone-label>
+                                </ngx-dropzone-image-preview>
+                                <textarea  formControlName="type" nbInput fullWidth placeholder="Ecrire une description" style="width: 100%;margin-top: 10px;" >
+                                </textarea>
+                            
+                        </nb-accordion-item-body>
+                    </div>
+              </nb-accordion-item>
+              
+            </div>
+            <button (click)="submit1()">Submit Form</button>
+        </form>
+      
+    </nb-accordion>
+
+-->

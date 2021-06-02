@@ -1,0 +1,38 @@
+<nb-card>
+    <nb-card-body style="height: 565px;">
+      <div class="container" style="height: 565px;">
+        <div class="row" style="height:565px;">
+          <div class="col-7" style="height: 100%;">
+            <div id="map" style="height: 100%;width: 100%;border: rgb(160, 152, 152) solid 5px;border-radius: 5px;" [nbSpinner]="loading" nbSpinnerStatus="success" nbSpinnerSize="giant"></div>
+          </div>
+          <div class="col-5" style="height: 100% ;">
+            <nb-card style="height: 100%;border: rgb(160, 152, 152) solid 5px;border-radius: 5px;width: 100%;">
+              <nb-card-body>
+                <div class="btn-group special" role="group" aria-label="..." style="margin-left: -10px;margin-right: -10px;margin-bottom: 25px;">
+                    <input class="perimetrEvent" type="text" nbInput fullWidth status="info" placeholder="Enter un périmètre (m) " style="margin-right: 10px;">
+                    <button  [hidden]="!BtnAffectStatus" nbTooltip="veuillez choisir un événement sur la map" (click)="DrawParameter()" nbTooltipPlacement="bottom" size="small" class="btn btn-default" nbButton outline status="info" ><nb-icon icon="search-outline"></nb-icon>Chercher</button>
+                    <button  [hidden]="BtnAffectStatus" (click)="sendEventToAgent()" size="small" class="btn btn-default"  nbButton outline status="success" ><nb-icon icon="checkmark-circle-outline"></nb-icon>Affecter</button>
+                  </div>
+                <ag-grid-angular id="myGrid" class="ag-theme-balham" style="height: 480px;margin-top: -18px;margin-left: -10px;margin-right: -10px;"
+                                    [rowDragManaged]="true"
+                                    [animateRows]="true" 
+                                    [columnDefs]="leftColumns"
+                                    [gridOptions]="gridOptions"
+                                    [frameworkComponents]="frameworkComponents"
+                                    rowSelection="single"
+                                    [enableMultiRowDragging]="true"
+                                    [suppressRowClickSelection]="true"
+                                    [getRowNodeId]="getRowNodeId"
+                                    [rowDragManaged]="true"
+                                    [suppressMoveWhenRowDragging]="true"
+                                    [rowData]="ListAgentInsideCircle"
+                                    (selectionChanged)="onSelectionChanged($event)"
+                                    (gridReady)="onGridReady($event)">
+            </ag-grid-angular>
+              </nb-card-body>
+            </nb-card>
+          </div>
+        </div>
+      </div>
+    </nb-card-body>
+  </nb-card>

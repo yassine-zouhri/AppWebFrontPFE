@@ -1,0 +1,305 @@
+<div class="container">
+    <div class=" row">
+      <div class="col align-self-center">
+    
+    <nb-card>
+      <nb-card-body>
+        <nb-stepper #stepper>
+          <nb-step [stepControl]="firstForm" label="Basic Information">
+            <form [formGroup]="firstForm" (ngSubmit)="onFirstSubmit()" class="step-container ">
+              <div class=" container" style="width: 700px;">
+                  <div class="row">
+                    <div class="col">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Nom</mat-label>
+                            <!-- [errorStateMatcher]="matcher" -->
+                            <input  matInput placeholder="Ex. Zouhri" class="form-control" formControlName="NomCtrl">
+                            <div *ngIf="firstForm.get('NomCtrl').invalid && firstForm.get('NomCtrl').errors && 
+                                (firstForm.get('NomCtrl').dirty || firstForm.get('NomCtrl').touched)">
+                                <small class="text-danger" *ngIf="firstForm.get('NomCtrl').hasError('required')">
+                                    This field is required.
+                                </small>
+                                <small class="text-danger" *ngIf="firstForm.get('NomCtrl').hasError('minlength')">
+                                    The minimum length for this field is {{firstForm.get('NomCtrl').errors.minlength.requiredLength}} characters.
+                                </small>
+                           </div>
+                        </mat-form-field>
+                    </div>
+                    <div class="col">
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Prenom</mat-label>
+                            <input matInput placeholder="Ex. Yassine" class="form-control" formControlName="PrenomCtrl">
+                            <div *ngIf="firstForm.get('PrenomCtrl').invalid && firstForm.get('PrenomCtrl').errors && 
+                                (firstForm.get('PrenomCtrl').dirty || firstForm.get('PrenomCtrl').touched)">
+                                <small class="text-danger" *ngIf="firstForm.get('PrenomCtrl').hasError('required')">
+                                    This field is required.
+                                </small>
+                                <small class="text-danger" *ngIf="firstForm.get('PrenomCtrl').hasError('minlength')">
+                                    The minimum length for this field is {{firstForm.get('PrenomCtrl').errors.minlength.requiredLength}} characters.
+                                </small>
+                           </div>
+                        </mat-form-field>
+                    </div>
+                  </div>
+              </div>
+              <div class=" container" style="width: 700px;">
+                <div class="row">
+                  <div class="col">
+                      <mat-form-field class="example-full-width">
+                          <mat-label>Ville</mat-label>
+                          <input matInput placeholder="Ex. Casablanca" class="form-control" formControlName="VilleCtrl">
+                          <div *ngIf="firstForm.get('VilleCtrl').invalid && firstForm.get('VilleCtrl').errors && 
+                                (firstForm.get('VilleCtrl').dirty || firstForm.get('VilleCtrl').touched)">
+                                <small class="text-danger" *ngIf="firstForm.get('VilleCtrl').hasError('required')">
+                                    This field is required.
+                                </small>
+                                <small class="text-danger" *ngIf="firstForm.get('VilleCtrl').hasError('minlength')">
+                                    The minimum length for this field is {{firstForm.get('VilleCtrl').errors.minlength.requiredLength}} characters.
+                                </small>
+                           </div>
+                      </mat-form-field>
+                  </div>
+                  <div class="col">
+                      <mat-form-field class="example-full-width">
+                          <mat-label>Pays</mat-label>
+                          <input matInput placeholder="Ex. Maroc"  class="form-control" formControlName="PaysCtrl">
+                          <div *ngIf="firstForm.get('PaysCtrl').invalid && firstForm.get('PaysCtrl').errors && 
+                                (firstForm.get('PaysCtrl').dirty || firstForm.get('PaysCtrl').touched)">
+                                <small class="text-danger" *ngIf="firstForm.get('PaysCtrl').hasError('required')">
+                                    This field is required.
+                                </small>
+                                <small class="text-danger" *ngIf="firstForm.get('PaysCtrl').hasError('minlength')">
+                                    The minimum length for this field is {{firstForm.get('PaysCtrl').errors.minlength.requiredLength}} characters.
+                                </small>
+                           </div>
+                      </mat-form-field>
+                  </div>
+                </div>
+            </div>
+            <div class=" container" style="width: 700px;">
+                <div class="row">
+                  <div class="col">
+                      <mat-form-field class="example-full-width">
+                          <mat-label>Entreprise</mat-label>
+                          <input matInput placeholder="Ex. Cires"  class="form-control" formControlName="EntrepriseCtrl">
+                          <div *ngIf="firstForm.get('EntrepriseCtrl').invalid && firstForm.get('EntrepriseCtrl').errors && 
+                                (firstForm.get('EntrepriseCtrl').dirty || firstForm.get('EntrepriseCtrl').touched)">
+                                <small class="text-danger" *ngIf="firstForm.get('EntrepriseCtrl').hasError('required')">
+                                    This field is required.
+                                </small>
+                                <small class="text-danger" *ngIf="firstForm.get('EntrepriseCtrl').hasError('minlength')">
+                                    The minimum length for this field is {{firstForm.get('EntrepriseCtrl').errors.minlength.requiredLength}} characters.
+                                </small>
+                           </div>
+                      </mat-form-field>
+                  </div>
+                  <div class="col">
+                      <mat-form-field class="example-full-width">
+                          <mat-label>Échelle</mat-label>
+                          <input matInput  placeholder="Ex. 12"  class="form-control" formControlName="EchelleCtrl">
+                          <div *ngIf="firstForm.get('EchelleCtrl').invalid && firstForm.get('EchelleCtrl').errors && 
+                                (firstForm.get('EchelleCtrl').dirty || firstForm.get('EchelleCtrl').touched)">
+                                <small class="text-danger" *ngIf="firstForm.get('EchelleCtrl').hasError('required')">
+                                    This field is required.
+                                </small>
+                                <small class="text-danger" *ngIf="firstForm.get('EchelleCtrl').hasError('minlength')">
+                                    The minimum length for this field is {{firstForm.get('EchelleCtrl').errors.minlength.requiredLength}} characters.
+                                </small>
+                           </div>
+                        </mat-form-field>
+                  </div>
+                </div>
+            </div>
+            <div class=" container" style="width: 700px;">
+                <div class="row">
+                  <div class="col">
+                      <mat-form-field class="example-full-width">
+                          <mat-label>Anniversaire</mat-label>
+                          <input  matInput placeholder="Ex. 1998-09-17" [matDatepicker]="picker1" formControlName="AnniversaireCtrl">
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1 color="primary"></mat-datepicker>
+                    
+                          <div *ngIf="firstForm.get('AnniversaireCtrl').invalid && firstForm.get('AnniversaireCtrl').errors && 
+                                (firstForm.get('AnniversaireCtrl').dirty || firstForm.get('AnniversaireCtrl').touched)">
+                                <small class="text-danger" *ngIf="firstForm.get('AnniversaireCtrl').hasError('required')">
+                                    This field is required.
+                                </small>
+                           </div>
+                      </mat-form-field>
+                  </div>
+                  <div class="col">
+                      <mat-form-field class="example-full-width">
+                          <mat-label>Mobile</mat-label>
+                          <input matInput placeholder="Ex. +212623742230" class="form-control" formControlName="MobileCtrl">
+                          <div *ngIf="firstForm.get('MobileCtrl').invalid && firstForm.get('MobileCtrl').errors && 
+                                (firstForm.get('MobileCtrl').dirty || firstForm.get('MobileCtrl').touched)">
+                            <small class="text-danger" *ngIf="firstForm.get('MobileCtrl').hasError('required')">
+                                This field is required.
+                            </small>
+                            <small class="text-danger" *ngIf="firstForm.get('MobileCtrl').hasError('minlength')">
+                                The minimum length for this field is {{firstForm.get('MobileCtrl').errors.minlength.requiredLength}} characters.
+                            </small>
+                           </div>
+                      </mat-form-field>
+                  </div>
+                </div>
+            </div>
+              <button nbButton nbStepperNext [disabled]="firstForm.invalid" >next</button>
+            </form>
+          </nb-step>
+          <nb-step [stepControl]="secondForm" label="Profile Information">
+            <form [formGroup]="secondForm" (ngSubmit)="onSecondSubmit()" class="step-container">
+                <div class=" container" style="width: 700px;">
+                    <div class="row">
+                      <div class="col">
+                          <mat-form-field class="example-full-width">
+                              <mat-label>Username</mat-label>
+                              <input   [errorStateMatcher]="matcher" matInput placeholder="Ex. yassine98"  class="form-control" formControlName="UsernameCtrl" disabled>
+                              <div *ngIf="secondForm.get('UsernameCtrl').invalid && secondForm.get('UsernameCtrl').errors && 
+                                    (secondForm.get('UsernameCtrl').dirty || secondForm.get('UsernameCtrl').touched)">
+                                    <small class="text-danger" *ngIf="secondForm.get('UsernameCtrl').hasError('required')">
+                                        This field is required.
+                                    </small>
+                                    <small class="text-danger" *ngIf="secondForm.get('UsernameCtrl').hasError('minlength')">
+                                        The minimum length for this field is {{secondForm.get('UsernameCtrl').errors.minlength.requiredLength}} characters.
+                                    </small>
+                               </div>
+                               <small class="text-danger "  *ngIf="secondForm.get('UsernameCtrl').hasError('usernameExists') && (secondForm.get('UsernameCtrl').dirty || secondForm.get('UsernameCtrl').touched)">
+                                That username already exists!
+                                </small>
+                          </mat-form-field>
+                      </div>
+                      <div class="col">
+                          <mat-form-field class="example-full-width">
+                              <mat-label>Email</mat-label>
+                              <input disabled [errorStateMatcher]="matcher"  matInput placeholder="Ex. yassinezouhri@gmail.com" class="form-control" formControlName="EmailCtrl">
+                              <div *ngIf="secondForm.get('EmailCtrl').invalid && secondForm.get('EmailCtrl').errors && 
+                                    (secondForm.get('EmailCtrl').dirty || secondForm.get('EmailCtrl').touched)">
+                                <small class="text-danger" *ngIf="secondForm.get('EmailCtrl').hasError('required')">
+                                    This field is required.
+                                </small>
+                                <small class="text-danger" *ngIf="secondForm.get('EmailCtrl').hasError('email')">
+                                    Please enter a valid email address
+                                </small>
+                               </div>
+                               <small class="text-danger "  *ngIf="secondForm.get('EmailCtrl').hasError('emailExists') && (secondForm.get('EmailCtrl').dirty || secondForm.get('EmailCtrl').touched)">
+                                That email already exists!
+                                </small>
+                          </mat-form-field>
+                      </div>
+                    </div>
+                </div>
+                <div class=" container" style="width: 700px;">
+                    <div class="row">
+                      <div class="col">
+                          <mat-form-field class="example-full-width">
+                              <mat-label>Mot de passe</mat-label>
+                              <input [type]="hide1 ? 'password' : 'text'" matInput placeholder="Ex. 123456"  class="form-control" formControlName="PasswordCtrl">
+                              <button mat-icon-button matSuffix (click)="hide1 = !hide1" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide1">
+                                <mat-icon>{{hide1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                              <div *ngIf="secondForm.get('PasswordCtrl').invalid && secondForm.get('PasswordCtrl').errors && 
+                                    (secondForm.get('PasswordCtrl').dirty || secondForm.get('PasswordCtrl').touched)">
+                                    <small class="text-danger" *ngIf="secondForm.get('PasswordCtrl').hasError('required')">
+                                        This field is required.
+                                    </small>
+                                    <small class="text-danger" *ngIf="secondForm.get('PasswordCtrl').hasError('minlength')">
+                                        The minimum length for this field is {{secondForm.get('PasswordCtrl').errors.minlength.requiredLength}} characters.
+                                    </small>
+                               </div>
+                          </mat-form-field>
+                      </div>
+                      <div class="col">
+                          <mat-form-field class="example-full-width">
+                              <mat-label>Confirmer le mot de passe</mat-label>
+                              <input [type]="hide2 ? 'password' : 'text'" matInput placeholder="Ex. 123456" [errorStateMatcher]="matcher" class="form-control" formControlName="ConfirmPasswordCtrl">
+                              <button mat-icon-button matSuffix (click)="hide2 = !hide2" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide2">
+                                <mat-icon>{{hide2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+                            </button>
+                              <div *ngIf="secondForm.get('ConfirmPasswordCtrl').invalid && secondForm.get('ConfirmPasswordCtrl').errors && 
+                                    (secondForm.get('ConfirmPasswordCtrl').dirty || secondForm.get('ConfirmPasswordCtrl').touched)">
+                                <small class="text-danger" *ngIf="secondForm.get('ConfirmPasswordCtrl').hasError('required')">
+                                    This field is required.
+                                </small>
+                                <small class="text-danger" *ngIf="secondForm.get('ConfirmPasswordCtrl').hasError('minlength')">
+                                    Please enter a valid password
+                                </small>
+                    
+                               </div>
+                               <small class="text-danger"  *ngIf="secondForm.hasError('notSame') && (secondForm.get('ConfirmPasswordCtrl').dirty || secondForm.get('ConfirmPasswordCtrl').touched)">
+                                Password and Confirm Password must be match
+                                </small>
+                          </mat-form-field>
+                      </div>
+                    </div>
+                </div>
+                <div class=" container" style="width: 700px;">
+                    <div class="row">
+                      <div class="col">
+                          <mat-form-field appearance="fill" class="example-full-width">
+                              <mat-label>Role</mat-label>
+                              <mat-select placeholder="Selectionner un role :" formControlName="RoleCtrl" >
+                                <mat-option label="--select a Role --"></mat-option>
+                                <mat-option value="administrateur">Administrateur</mat-option>
+                                <mat-option value="superviseur">Superviseur</mat-option>
+                                <mat-option value="chef de poste">Chef de poste</mat-option>
+                                <mat-option value="manager">Manager</mat-option>
+                                <mat-option value="agent">Agent</mat-option>
+                              </mat-select>
+                              <div *ngIf="secondForm.get('RoleCtrl').invalid && secondForm.get('RoleCtrl').errors && 
+                                    (secondForm.get('RoleCtrl').dirty || secondForm.get('RoleCtrl').touched)">
+                                    <small class="text-danger" *ngIf="secondForm.get('RoleCtrl').hasError('required')">
+                                        This field is required.
+                                    </small>
+                               </div>
+                          </mat-form-field>
+                      </div>
+                      <div class="col">
+                        <mat-form-field floatLabel="always" class="example-full-width">
+                            <mat-label>Status</mat-label>
+                            <mat-slide-toggle matNativeControl  formControlName="StatusCtrl" color="primary">Activer le compte</mat-slide-toggle>
+                            <textarea matInput hidden></textarea>
+                        </mat-form-field>
+                    </div>
+                    </div>
+                </div>
+              <button nbButton nbStepperPrevious>prev</button>
+              <button nbButton nbStepperNext [disabled]="secondForm.invalid" >next</button>
+            </form>
+          </nb-step>
+          <nb-step [stepControl]="thirdForm" label="Photo">
+            <form [formGroup]="thirdForm" (ngSubmit)="onThirdSubmit()" class="step-container">
+                <div class=" container" style="width: 700px;">
+                    <div class="row">
+                      <div class="col">
+                        <p class="lorem">
+                            veuillez selectionner l'image d'un utilisateur . 
+                          </p>
+                          <input type="file" (change)="onFileChanged($event)" accept="image/png, image/jpeg"  class="form-control" formControlName="ImageCtrl">
+                          <div *ngIf="thirdForm.get('ImageCtrl').invalid && thirdForm.get('ImageCtrl').errors && 
+                                                (thirdForm.get('ImageCtrl').dirty || thirdForm.get('ImageCtrl').touched)">
+                                                <small class="text-danger" *ngIf="thirdForm.get('ImageCtrl').hasError('required')">
+                                                    This field is required.
+                                                </small>
+                            </div>
+                      </div>
+                    </div>
+                </div>
+              
+              <button nbButton nbStepperPrevious>prev</button>
+              <button nbButton nbStepperNext [disabled]="thirdForm.invalid" (click)="GetAllUserInfo()">Confirm</button>
+            </form>
+          </nb-step>
+          
+          <nb-step [stepControl]="thirdForm" [hidden]="true" label="Third step">
+            <div class="step-container">
+              <h3>Vous avez modifié le profile de votre utilisateur avec succès </h3>
+              <button nbButton (click)="ReloadPage()">Try again</button>
+            </div>
+          </nb-step>
+        </nb-stepper>
+      </nb-card-body>
+    </nb-card>
+      </div>
+    </div>
+    </div>

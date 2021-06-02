@@ -1,0 +1,24 @@
+<nb-card style="margin-top: -15px;margin-left: -15px;">
+    <nb-card-body>
+        <button  style="margin-bottom: 10px; margin-left: 10px;" nbButton outline status="info" (click)="onBtExport()">
+          <nb-icon icon="cloud-download-outline">
+          </nb-icon>Exporter en excel
+        </button>
+        <ag-grid-angular id="myGrid" class="ag-theme-alpine" style="height: 550px;width: 100%;margin-top: 10px; box-sizing: border-box;"
+            [rowDragManaged]="true"
+
+            [suppressExcelExport]="true"
+            [animateRows]="true" 
+            [rowData]="listRoadMap"
+            [columnDefs]="columnDefs"
+            [gridOptions]="gridOptions"
+            [frameworkComponents]="frameworkComponents"
+
+            [paginationAutoPageSize]="true"
+            [pagination]="true"
+            
+    >
+        </ag-grid-angular>
+    </nb-card-body>
+  </nb-card>
+

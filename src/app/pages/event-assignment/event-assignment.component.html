@@ -1,0 +1,100 @@
+<nb-card>
+    <nb-card-body style="margin: 0;padding: 0;">
+        <div class="container-fluid" >
+            <div class="row" style="margin-top: 35px;" >
+                <div class="col-8">
+                    
+                    <div id="map" style="height: 650px;" [nbSpinner]="loading" nbSpinnerStatus="success" nbSpinnerSize="giant"></div>
+                    <div id="legend" hidden="true"><h5>Légende</h5></div>
+                </div>
+                <div class="col-4"  style="height: 650px;">
+                    <nb-card style="height: 100%;">               
+                        <nb-card-body >
+                            <nb-accordion  style="height: 100px;margin: -23px;">
+                                <nb-accordion-item [expanded]="true">
+                                 <nb-accordion-item-header>Affectation de l'evenement </nb-accordion-item-header>
+                                 <nb-accordion-item-body>
+                                     <div class="btn-group special" role="group" aria-label="...">
+                                        <input class="perimetrEvent" type="text" nbInput fullWidth status="info" placeholder="Enter un périmètre (m) " style="margin-right: 10px;">
+                                        <button  *ngIf="MySelectedMarkerData == null" nbTooltip="veuillez choisir un événement sur la map" nbTooltipPlacement="bottom" size="small" class="btn btn-default" nbButton outline status="info" ><nb-icon icon="search-outline"></nb-icon>Chercher</button>
+                                        <button  *ngIf="MySelectedMarkerData != null && MySelectedMarkerData['assigned']==true" nbTooltip="veuillez choisir un autre évènement non affecté sur la map" nbTooltipPlacement="bottom" size="small" class="btn btn-default" nbButton outline status="info" ><nb-icon icon="search-outline"></nb-icon>Chercher</button>
+                                        
+                                        <button  [hidden]="!BtnAffectStatus"  *ngIf="MySelectedMarkerData!=null && MySelectedMarkerData['assigned']==false " (click)="DrawParameter()" size="small" class="btn btn-default"  nbButton outline status="info" ><nb-icon icon="search-outline"></nb-icon>Chercher</button>
+                                        <button  [hidden]="BtnAffectStatus" (click)="sendEventToAgent()" size="small" class="btn btn-default"  nbButton outline status="success" ><nb-icon icon="checkmark-circle-outline"></nb-icon>Affecter</button>  
+                                      </div>
+                    
+                    
+                                      <ag-grid-angular id="myGrid" class="ag-theme-balham" style="height: 400px;margin-top: 10px;"
+                                            [rowDragManaged]="true"
+                                            [animateRows]="true" 
+                                            [columnDefs]="leftColumns"
+                                            [gridOptions]="gridOptions"
+                                            [frameworkComponents]="frameworkComponents"
+                                            rowSelection="single"
+                                            [enableMultiRowDragging]="true"
+                                            [suppressRowClickSelection]="true"
+                                            [getRowNodeId]="getRowNodeId"
+                                            [rowDragManaged]="true"
+                                            [suppressMoveWhenRowDragging]="true"
+                                            [rowData]="ListAgentInsideCircle"
+                                            (selectionChanged)="onSelectionChanged($event)"
+                                            (gridReady)="onGridReady($event)"
+                                        >
+                                        </ag-grid-angular>
+                    
+                                 </nb-accordion-item-body>
+                                </nb-accordion-item>
+                                <nb-accordion-item>
+                                    <nb-accordion-item-header>Description de l'evenement</nb-accordion-item-header>
+                                    <nb-accordion-item-body>
+                                        <div *ngIf="MySelectedMarkerData!=null" class="card" style="width: 100%;">
+                                            <img [src]="MySelectedMarkerData.imageURL" class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                              <h5 class="card-title">{{MySelectedMarkerData.titre}}</h5>
+                                              <p class="card-text">{{MySelectedMarkerData.description}}.</p>
+                                            </div>
+                                            <ul class="list-group list-group-flush">
+                                              <li class="list-group-item">Categotie : {{MySelectedMarkerData.categorie}}</li>
+                                              <li class="list-group-item">Zone : {{MySelectedMarkerData.zone}}</li>
+                                              <li class="list-group-item">Date : {{MySelectedMarkerData.date}}</li>
+                                              <li class="list-group-item">Priorité : {{MySelectedMarkerData.degre_danger}}/10</li>
+                                            </ul>
+                                          </div>
+                                    </nb-accordion-item-body>
+                                </nb-accordion-item>
+                                <nb-accordion-item>
+                                    <nb-accordion-item-header>Historique des evenements</nb-accordion-item-header>
+                                    <nb-accordion-item-body>
+                                        <div>
+                                            <input nbInput id="datedebutEvents" placeholder="date de début " fullWidth [nbDatepicker]="dateTimePicker1" >
+                                            <nb-date-timepicker
+                                                    #dateTimePicker1
+                                                    singleColumn
+                                                    [step]="10">
+                                            </nb-date-timepicker>
+                                        </div>
+                                        
+                                        <div style="margin-top: 15px;" >
+                                            <input fullWidth  id="datefinEvents" nbInput placeholder="date de fin " [nbDatepicker]="dateTimePicker2" >
+                                            <nb-date-timepicker  style="width: 100%;"
+                                                    #dateTimePicker2
+                                                    singleColumn
+                                                    [step]="10">
+                                            </nb-date-timepicker>
+                                        </div>
+                                        
+                                        
+                                        <button nbButton outline status="primary" style="width: 100%;margin-top: 15px;" (click)="OnChoosePeriodeEvent()">Valider</button>
+                                    </nb-accordion-item-body>
+                                </nb-accordion-item>
+                            </nb-accordion>
+                        </nb-card-body>
+                      </nb-card>
+                 
+                </div>
+            </div> 
+        </div>
+    </nb-card-body>
+  </nb-card>
+
+

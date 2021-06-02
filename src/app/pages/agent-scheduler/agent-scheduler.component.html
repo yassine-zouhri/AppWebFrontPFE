@@ -1,0 +1,94 @@
+<!--
+
+<div style="float: left;height: 700px;">
+    <ejs-schedule #schedulerObj style="height: 100%;"
+    [views]="setView"
+    [allowDragAndDrop]="true"
+    [allowResizing]="true"
+    [eventSettings]="eventObject"
+    [selectedDate]="setDate"
+    [currentView]="setView"
+    (dragStart)="onDragStart($event)"
+    (resizeStart)="onResizeStart($event)"
+  >
+  </ejs-schedule>
+</div>
+
+<div style ="width: 400px;float: right;margin-right: 150px;">
+    <ejs-treeview 
+    [fields]="field"
+    [allowDragAndDrop]="true"
+    (nodeDragStop) = "onTreeDragStop($event)">
+
+    </ejs-treeview>
+</div>
+
+
+
+<ejs-schedule #schedulerObj style="height: 100%;"
+    [views]="setViews"
+    [allowDragAndDrop]="false"
+    [allowResizing]="true"
+    [eventSettings]="eventObject"
+    [selectedDate]="setDate"
+    [currentView]="setView"
+    [group]="groupData"
+    (resizeStart)="onResizeStart($event)"
+  >
+  <e-resources>
+    <e-resource
+        field="ResourceID"
+        title="REsource Name"
+        [dataSource]="resourcetDataSource"
+        name="Resources"
+        textField="Name"
+        idField="Id"
+        colorField="Color">
+    <h4>fffff</h4>
+    </e-resource>
+  </e-resources>
+  </ejs-schedule>
+-->
+<div class="control-section">
+    <ejs-schedule id="schedule"  #scheduleObj cssClass='schedule-group-editing' width='100%' height='650px'
+         [group]="group" [selectedDate]="selectedDate"
+        [eventSettings]="eventSettings" [currentView]="currentView"
+        [allowDragAndDrop]="false"
+        [rowAutoHeight]='true'
+        (actionComplete)="onActionComplete($event)"
+        (resizeStart)="onResizeStart($event)"
+        (actionBegin)="onActionBegin($event)"
+        (eventRendered)="onEventRendered($event)"
+        (popupOpen)="onPopupOpen($event)"
+        >
+        <ng-template #resourceHeaderTemplate let-data >
+            <div class='template-wrap' >
+                <div class="resource-image">
+                  <img [src]="getEmployeeImage(data)" style="height:50px;width:50px; border-radius: 50%;"/>
+                </div>
+                <div class="resource-details">
+                    <div class="resource-name">{{getEmployeeName(data)}}</div>
+                    <div class="resource-designation">{{getEmployeeMAtricule(data)}}</div>
+                </div>
+            </div>
+        </ng-template>
+
+        <e-views>
+            <e-view option="Day" displayName="Jour"></e-view>
+            <e-view option="WorkWeek"></e-view>
+            <e-view option="Month" displayName="Mois">
+                <ng-template #eventTemplate let-data>
+                    <div class="subject">{{data.Subject}}</div>
+                </ng-template>
+            </e-view>
+            <e-view option="TimelineWeek"></e-view>
+            <e-view option="TimelineDay"></e-view>
+        </e-views>
+        <e-resources>
+            <e-resource field='ConferenceId' title='Agent' name='Conferences' [allowMultiple]='allowMultiple' [dataSource]='resourceDataSource'
+                textField='Text' idField='agentId' colorField='Color'>
+            </e-resource>
+        </e-resources>
+    </ejs-schedule>
+    <ejs-pager [pageSize]='8' [totalRecordsCount]='numberPages' (click)="onSlide($event)"></ejs-pager>
+</div>
